@@ -25,15 +25,41 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 
 ### ⊙ RDS
 1. Click `Create database` button
-2. Select engine: `PostgreSQL`
+2. Quick create `NO`
+3. Engine options
+   * Engine type: `PostgreSQL`
+   * Version: `PostgreSQL 10.6-R1`
+2. Templates
+   * Free tier
+3. Settings
+   * DB instance identifier: `strapi-cms-production`
+   * Credentials Settings/Master username: `root`
+   * Auto generate a password: `true`
+4. DB instance size
+   * DB instance performance type: `Burstable`
+5. Storage
+   * Storage type: `General Purpose SSD`
+   * Allocated storage: `20 GB`
+6. Availability & durability
+   * Multi-AZ deployment: `Do not create a standby instance`
+7. Connectivity
+   * Virtual Private Cloud (VPC): Default VPC
+   * Additional connectivity configuration/Subnet group: *as you like*
+   * Additional connectivity configuration/Publicly accessible: `Yes` *(that's why you need a super strong password)*
+   * Additional connectivity configuration/VPC security groups: *as you like*
+   * Additional connectivity configuration/Availability zone: *as you like*
+   * Additional connectivity configuration/Databse port: 5432
+   
+   
+-----------------------
+3. Version
 3. Choose use case: *as you like*
 4. Specify DB details:
     * DB engine version: `PostgreSQL 10.x-R1`
     * DB instance class: `db.t2.micro`
-    * Multi-AZ deployment: `Yes`
+    * Multi-AZ deployment: `No`
     * Storage: `General Purpose (SSD), 20 GB`
-    * DB instance identifier: strapi-cms-production
-    Type a name for your DB instance. The name must be unique cross all DB instances owned by your AWS account in the current AWS Region.
+    * DB instance identifier(The name must be unique cross all DB instances owned by your AWS account in the current AWS Region): strapi-cms-production
     * Master username: root
     * Password: *as you like, recommend https://passwordsgenerator.net*
 5. Configure advanced settings
@@ -47,6 +73,7 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
     * Development mode: `strapi_dev`
     * Staging mode: `strapi_staging`
     * Production mode: `strapi` *(already exists)*
+8. Additional configuration
 
 ### ⊙ S3
 0. Click `Create bucket` button
