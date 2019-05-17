@@ -1,7 +1,6 @@
 # Deploying a Strapi API on AWS (EC2 & RDS & S3)
-> Goal: build a HTTPS-secured Strapi API with dev & staging & prod modes
+> Goal: build a HTTPS-secured Strapi API as Headles CMS for managing content with dev & staging & prod modes
 
-Everything done in the following is [AWS Free Tier](https://aws.amazon.com/free/) eligible.  
 Make sure you have already skimmed the [Strapi docs](https://strapi.io/documentation/3.x.x) before you start.
 
 ## § Create EC2 instance / RDS instance / S3 bucket
@@ -13,14 +12,14 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 2. Choose AMI: `Ubuntu Server 18.04 LTS (HVM), SSD Volume Type`
 3. Choose Instance Type: `General purpose, t2.micro`
 4. Configure Instance: *as you like*
-5. Add Storage: `General Purpose SSD (gp2), 8 GB`
-6. Add Tags: *as you like*
+5. Add Storage: `General Purpose SSD (gp2), 20 GB`
+6. Add Tags: Name - i-Ubuntu18.04-DBRI-Strapi-CMS(cms.dickeys.com)
 7. Configure Security Group:
     * SSH (22) - `My IP` or `Anywhere` or *as you like*
     * HTTP (80) - `Anywhere`
     * HTTPS (443) - `Anywhere`
 8. Review: click `Launch` button, then a modal pops up. If you are a:
-    * Newbie: Choose `Create a new key pair` named `strapi-cms`, download it as `strapi-cms.pem`
+    * Newbie: Choose `Create a new key pair` named `cms.dickeys.com`, download it as `cms.dickeys.com.pem`
     * Veteran: *as you like*
 9. Finally, click `Launch Instances` button
 
@@ -31,10 +30,11 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 4. Specify DB details:
     * DB engine version: `PostgreSQL 10.x-R1`
     * DB instance class: `db.t2.micro`
-    * Multi-AZ deployment: `No`
+    * Multi-AZ deployment: `Yes`
     * Storage: `General Purpose (SSD), 20 GB`
-    * DB instance identifier: *as you like*
-    * Master username: *as you like*
+    * DB instance identifier: strapi-cms-production
+    Type a name for your DB instance. The name must be unique cross all DB instances owned by your AWS account in the current AWS Region.
+    * Master username: root
     * Password: *as you like, recommend https://passwordsgenerator.net*
 5. Configure advanced settings
     * Public accessibility: `Yes` *(that's why you need a super strong password)*
