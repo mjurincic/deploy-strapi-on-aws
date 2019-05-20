@@ -25,7 +25,7 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 9. Finally, click `Launch Instances` button
 
 ### ⊙ RDS
-----------------------------(new database creation flow)------------------------------ 
+--------------------------------------(new database creation flow)-------------------------------------------------
 
 Use `Switch to the new database creation flow.` if not already set 
 ![alt text](https://raw.githubusercontent.com/mjurincic/deploy-strapi-on-aws/master/console.aws.amazon.com_rds.png) 
@@ -44,6 +44,7 @@ Use `Switch to the new database creation flow.` if not already set
         * - [x] `Auto generate a password`
 4. DB instance size
    * DB instance performance type: `Burstable`
+   * DB instance class: `db.t2.micro`
 5. Storage
    * Storage type: `General Purpose SSD`
    * Allocated storage: `20 GB`
@@ -51,34 +52,41 @@ Use `Switch to the new database creation flow.` if not already set
    * Multi-AZ deployment: `Do not create a standby instance`
 7. Connectivity
    * Virtual Private Cloud (VPC): `Default VPC`
-   * Additional connectivity configuration/Subnet group: `*as you like*`
-   * Additional connectivity configuration/Publicly accessible: `Yes` *(that's why you need a super strong password)*
-   * Additional connectivity configuration/VPC security groups: `*as you like*`
-       * Edit inbound rules: PostgreSQL (5432) - `Anywhere`
-
-   * Additional connectivity configuration/Availability zone: `*as you like*`
-   * Additional connectivity configuration/Databse port: `5432`
+   * Additional connectivity configuration
+      * Subnet group: `default`
+      * Publicly accessible: `Yes` *(that's why you need a super strong password)*
+      * VPC security groups: `Create new`
+         * New VPC security group name: `dickeys-strapi-cms`
+      * Availability zone: `No preference`
+      * Databse port: `5432`
 8. Additional configuration
-   * Database options/Initial database name: `dickeys_strapi_cms`
-   * Database options/DB parameter group: `*as you like*`
-   * Database options/Option group: `*as you like*`
-   * Database options/IAM db authenticationInfo: `*as you like*`
-   * Backup/Enable automatic backups: `yes`
-   * Backup/Backup retention period: `7 days`
-   * Backup/Backup window: `*choose an idle peroid in your timezone*`
-   * Performance Insights/Enable Performance Insights `yes`
-   * Performance Insights/Retention period `7 days`
-   * Performance Insights/Master key `default`
-   * Monitoring/Enable Enhanced monitoring `yes`
-   * Monitoring/Granularity `60 seconds`
-   * Monitoring/Monitoring Role `default`
-   * Log exports/Postgresql log: `yes`
-   * Log exports/Upgrade log: `yes`
-   * Maintenance/Enable auto minor version upgrade: `yes`
-   * Maintenance/Maintenance window: `No preference`
-   * Deletion protection/Enable deletion protection: `yes`
-
-----------------------------(old new database creation flow)------------------------------
+   * Database options/
+      * Initial database name: `dickeys_strapi_cms`
+      * DB parameter group: `*as you like*`
+      * Option group: `*as you like*`
+      * IAM db authenticationInfo: `*as you like*`
+      * Enable automatic backups: `yes`
+   * Backup
+      * Backup retention period: `7 days`
+      * Backup window: `*choose an idle peroid in your timezone* 06:00 UTC 1 hours`
+       * - [x] `Copy tags to snapshots`
+   * Performance Insights
+      * - [x] `Enable Performance Insights`
+      * Retention period `7 days`
+      * Master key `default`
+   * Monitoring
+      * - [x] `Enable Enhanced monitoring`
+      * Granularity `60 seconds`
+      * Monitoring Role `default`
+   * Log exports 
+      * - [x] `Postgresql log`
+      * - [x] `Upgrade log`
+   * Maintenance
+      * - [x] `Enable auto minor version upgrade`
+      * Maintenance window: `*choose an idle peroid in your timezone* 08:00 UTC 1 hours`
+   * Deletion protection
+      * - [x] `Enable deletion protection`
+-------------------------------------------(old new database creation flow)----------------------------------------
 1. Engine options; `PostgreSQL`
 2. Choose use case: `*as you like*`
 4. Instance specifications:
