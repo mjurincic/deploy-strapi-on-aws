@@ -24,6 +24,8 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 9. Finally, click `Launch Instances` button
 
 ### ⊙ RDS
+----------------------------(new databse creation interface)------------------------------
+
 1. Click `Create database` button
 2. Quick create `NO`
 3. Engine options
@@ -32,10 +34,9 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 2. Templates
    * Free tier
 3. Settings
-   * DB instance identifier: `strapi-cms-production`
+   * DB instance identifier: `dickeys-strapi-cms`
    * Credentials Settings/Master username: `root`
-   * Auto generate a password: `true`
-4. DB instance size
+`4. DB instance size
    * DB instance performance type: `Burstable`
 5. Storage
    * Storage type: `General Purpose SSD`
@@ -43,28 +44,47 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 6. Availability & durability
    * Multi-AZ deployment: `Do not create a standby instance`
 7. Connectivity
-   * Virtual Private Cloud (VPC): Default VPC
-   * Additional connectivity configuration/Subnet group: *as you like*
+   * Virtual Private Cloud (VPC): `Default VPC`
+   * Additional connectivity configuration/Subnet group: `*as you like*`
    * Additional connectivity configuration/Publicly accessible: `Yes` *(that's why you need a super strong password)*
-   * Additional connectivity configuration/VPC security groups: *as you like*
-   * Additional connectivity configuration/Availability zone: *as you like*
-   * Additional connectivity configuration/Databse port: 5432
-   
-   
------------------------
-3. Version
-3. Choose use case: *as you like*
-4. Specify DB details:
+   * Additional connectivity configuration/VPC security groups: `*as you like*`
+   * Additional connectivity configuration/Availability zone: `*as you like*`
+   * Additional connectivity configuration/Databse port: `5432`
+8. Additional configuration
+   * Database options/Initial database name: `dickeys_strapi_cms`
+   * Database options/DB parameter group: `*as you like*`
+   * Database options/Option group: `*as you like*`
+   * Database options/IAM db authenticationInfo: `*as you like*`
+   * Backup/Enable automatic backups: `yes`
+   * Backup/Backup retention period: `7 days`
+   * Backup/Backup window: `*choose an idle peroid in your timezone*`
+   * Performance Insights/Enable Performance Insights `yes`
+   * Performance Insights/Retention period `7 days`
+   * Performance Insights/Master key `default`
+   * Monitoring/Enable Enhanced monitoring `yes`
+   * Monitoring/Granularity `60 seconds`
+   * Monitoring/Monitoring Role `default`
+   * Log exports/Postgresql log: `yes`
+   * Log exports/Upgrade log: `yes`
+   * Maintenance/Enable auto minor version upgrade: `yes`
+   * Maintenance/Maintenance window: `No preference`
+   * Deletion protection/Enable deletion protection: `yes`
+
+----------------------------(old databse creation interface)------------------------------
+1. Engine options; `PostgreSQL`
+2. Choose use case: `*as you like*`
+4. Instance specifications:
     * DB engine version: `PostgreSQL 10.x-R1`
     * DB instance class: `db.t2.micro`
     * Multi-AZ deployment: `No`
-    * Storage: `General Purpose (SSD), 20 GB`
-    * DB instance identifier(The name must be unique cross all DB instances owned by your AWS account in the current AWS Region): strapi-cms-production
+    * Storage type: `General Purpose (SSD)`
+    * Allocated storage: `20 GB`
+    * DB instance identifier: `dickeys-strapi-cms`
     * Master username: root
     * Password: *as you like, recommend https://passwordsgenerator.net*
 5. Configure advanced settings
     * Public accessibility: `Yes` *(that's why you need a super strong password)*
-    * Database name: `strapi`
+    * Database name: `dickeys_strapi_cms`
     * Monitoring & Maintenance window: *choose an idle peroid in your timezone*
     * Click `Create database` button
 6. Instance Details panel - Security groups
