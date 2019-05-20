@@ -130,9 +130,9 @@ Use `Switch to the new database creation flow.` if not already set
 
 ## § Point your domain to EC2
 Point the A / CNAME records to the EC2's IPv4 Public IP / Public DNS (IPv4), such as:
-* Development mode: `dev-cms.yourdomain.com`
-* Staging mode: `staging-cms.yourdomain.com`
-* Production mode: `cms.yourdomain.com`
+* Development mode: `development-cms.dickeys.com`
+* Staging mode: `staging-cms.dickeys.com`
+* Production mode: `cms.dickeys.com`
 
 ## § Warm up EC2
 
