@@ -85,7 +85,8 @@ Use `Switch to the new database creation flow.` if not already set
       * - [x] `Enable auto minor version upgrade`
       * Maintenance window: `*choose an idle peroid in your timezone* 08:00 UTC 1 hours`
    * Deletion protection
-      * - [x] `Enable deletion protection`
+      * - [x] `Enable deletion protection` 
+
 -------------------------------------------(old new database creation flow)----------------------------------------
 1. Engine options; `PostgreSQL`
 2. Choose use case: `*as you like*`
