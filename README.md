@@ -90,6 +90,7 @@ Use `Switch to the new database creation flow.` if not already set
     * Development mode: `dickeys_strapi_cms_development`
     * Staging mode: `dickeys_strapi_cms_staging`
     * Production mode: `dickeys_strapi_cms` *(already exists)*
+    
 -------------------------------------------(old new database creation flow)----------------------------------------
 1. Engine options; `PostgreSQL`
 2. Choose use case: `*as you like*`
