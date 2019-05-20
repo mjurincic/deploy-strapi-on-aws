@@ -24,7 +24,7 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 9. Finally, click `Launch Instances` button
 
 ### ⊙ RDS
-----------------------------(new databse creation interface)------------------------------
+----------------------------(new database creation flow)------------------------------
 
 1. Click `Create database` button
 2. Quick create `NO`
@@ -70,7 +70,7 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
    * Maintenance/Maintenance window: `No preference`
    * Deletion protection/Enable deletion protection: `yes`
 
-----------------------------(old databse creation interface)------------------------------
+----------------------------(old new database creation flow)------------------------------
 1. Engine options; `PostgreSQL`
 2. Choose use case: `*as you like*`
 4. Instance specifications:
