@@ -65,8 +65,8 @@ Use `Switch to the new database creation flow.` if not already set
       * DB parameter group: `*as you like*`
       * Option group: `*as you like*`
       * IAM db authenticationInfo: `*as you like*`
-      * Enable automatic backups: `yes`
    * Backup
+      * - [x] `Enable automatic backups`
       * Backup retention period: `7 days`
       * Backup window: `*choose an idle peroid in your timezone* 06:00 UTC 1 hours`
        * - [x] `Copy tags to snapshots`
