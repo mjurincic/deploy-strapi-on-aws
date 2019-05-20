@@ -86,7 +86,10 @@ Use `Switch to the new database creation flow.` if not already set
       * Maintenance window: `*choose an idle peroid in your timezone* 08:00 UTC 1 hours`
    * Deletion protection
       * - [x] `Enable deletion protection` 
-
+7. Create databases for development & staging modes (GUI recommend: https://dbeaver.io / https://www.navicat.com)
+    * Development mode: `dickeys_strapi_cms_development`
+    * Staging mode: `dickeys_strapi_cms_staging`
+    * Production mode: `dickeys_strapi_cms` *(already exists)*
 -------------------------------------------(old new database creation flow)----------------------------------------
 1. Engine options; `PostgreSQL`
 2. Choose use case: `*as you like*`
@@ -110,7 +113,6 @@ Use `Switch to the new database creation flow.` if not already set
     * Development mode: `strapi_dev`
     * Staging mode: `strapi_staging`
     * Production mode: `strapi` *(already exists)*
-8. Additional configuration
 
 ### ⊙ S3
 0. Click `Create bucket` button
@@ -188,7 +190,7 @@ $ strapi new dickeys-strapi-cms \
     --dbclient=postgres \
     --dbport=5432 \
     --dbhost=<RDS endpoint> \
-    --dbname=strapi_dev \
+    --dbname=dickeys_strapi_cms \
     --dbusername=<RDS master username> \
     --dbpassword=<RDS password>
 ```
