@@ -13,7 +13,8 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 3. Choose Instance Type: `General purpose, t2.micro`
 4. Configure Instance: *as you like*
 5. Add Storage: `General Purpose SSD (gp2), 20 GB`
-6. Add Tags: Name - i-Ubuntu18.04-DBRI-Dickeys-Strapi-CMS(cms.dickeys.com)
+6. Add Tags: Name - i-Ubuntu18.04-DBRI-
+-Strapi-CMS(cms.dickeys.com)
 7. Configure Security Group:
     * SSH (22) - `My IP` or `Anywhere` or *as you like*
     * HTTP (80) - `Anywhere`
@@ -25,6 +26,7 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 
 ### ⊙ RDS
 ----------------------------(new database creation flow)------------------------------
+Use `Switch to the new database creation flow.` if not already set
 
 1. Click `Create database` button
 2. Quick create `NO`
@@ -48,6 +50,8 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
    * Additional connectivity configuration/Subnet group: `*as you like*`
    * Additional connectivity configuration/Publicly accessible: `Yes` *(that's why you need a super strong password)*
    * Additional connectivity configuration/VPC security groups: `*as you like*`
+       * Edit inbound rules: PostgreSQL (5432) - `Anywhere`
+
    * Additional connectivity configuration/Availability zone: `*as you like*`
    * Additional connectivity configuration/Databse port: `5432`
 8. Additional configuration
@@ -167,7 +171,7 @@ $ npm i -g strapi@alpha
 Secondary, create a new project (refer to https://strapi.io/documentation/3.x.x/cli/CLI.html#strapi-new):
 
 ```shell
-$ strapi new strapi-cms \
+$ strapi new dickeys-strapi-cms \
     --dbclient=postgres \
     --dbport=5432 \
     --dbhost=<RDS endpoint> \
