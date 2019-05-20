@@ -25,8 +25,10 @@ Make sure you have already skimmed the [Strapi docs](https://strapi.io/documenta
 9. Finally, click `Launch Instances` button
 
 ### ⊙ RDS
-----------------------------(new database creation flow)------------------------------
-Use `Switch to the new database creation flow.` if not already set
+----------------------------(new database creation flow)------------------------------ 
+
+Use `Switch to the new database creation flow.` if not already set 
+![alt text](https://raw.githubusercontent.com/mjurincic/deploy-strapi-on-aws/master/console.aws.amazon.com_rds.png) 
 
 1. Click `Create database` button
 2. Quick create `NO`
@@ -37,8 +39,10 @@ Use `Switch to the new database creation flow.` if not already set
    * Free tier
 3. Settings
    * DB instance identifier: `dickeys-strapi-cms`
-   * Credentials Settings/Master username: `root`
-`4. DB instance size
+   * Credentials Settings:
+        * Master username: `root`
+        * - [x] `Auto generate a password`
+4. DB instance size
    * DB instance performance type: `Burstable`
 5. Storage
    * Storage type: `General Purpose SSD`
