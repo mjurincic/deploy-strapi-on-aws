@@ -1,5 +1,6 @@
 # Deploying a Strapi API on AWS (EC2 & RDS & S3)
-> Goal: build a HTTPS-secured Strapi API as Headles CMS for managing content with dev & staging & prod modes
+
+> Goal: build a HTTPS-secured Strapi API as Headles CMS for managing content with development & staging & prodution enviroments
 
 Make sure you have already skimmed the [Strapi docs](https://strapi.io/documentation/3.x.x) before you start.
 
