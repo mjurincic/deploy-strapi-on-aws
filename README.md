@@ -188,13 +188,13 @@ $ npm i -g strapi@alpha
 Secondary, create a new project (refer to https://strapi.io/documentation/3.x.x/cli/CLI.html#strapi-new):
 
 ```shell
-$ strapi new dickeys-strapi-cms \
-    --dbclient=postgres \
-    --dbport=5432 \
-    --dbhost=<RDS endpoint> \
-    --dbname=dickeys_strapi_cms \
-    --dbusername=<RDS master username> \
-    --dbpassword=<RDS password>
+$ strapi new cms.dickeys.com \
+   --dbclient=postgres \
+   --dbport=5432 \
+   --dbhost=<RDS endpoint> \
+   --dbname=dickeys_strapi_cms_development \
+   --dbusername=<RDS master username> \
+   --dbpassword=<RDS password>
 ```
 
 Finally, **DO NOT** rush to `strapi start` for now.  
@@ -302,7 +302,7 @@ Since Strapi will be running behind a well-tuned Nginx, you should:
 ```json
 $ git init
 $ git add -A
-$ git commit -m 'init'
+$ git commit -m 'initialize new strapi project'
 $ git remote add origin <private-git-repo-url>
 $ git push -u origin master
 ```
