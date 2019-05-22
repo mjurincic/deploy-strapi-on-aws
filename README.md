@@ -202,12 +202,34 @@ There are some preparatory procedures to accomplish.
 (By the way, you may be interested in https://strapi.io/documentation/3.x.x/advanced/usage-tracking.html)
 
 ### ⊙ Complete database configuration
-> If you prefer best practices like https://12factor.net/config and https://github.com/i0natan/nodebestpractices/blob/master/sections/projectstructre/configguide.md , you'd better use tools like [dotenv](https://www.npmjs.com/package/dotenv) instead.
+> If you prefer best practices like https://12factor.net/config and https://github.com/i0natan/nodebestpractices/blob/master/sections/projectstructre/configguide.md , you'd better use tools like [dotenv](https://www.npmjs.com/package/dotenv) instead. Look below for example.
+
+```js
+// config/functions/bootstrap.js
+'use strict';
+
+/**
+ * An asynchronous bootstrap function that runs before
+ * your application gets started.
+ *
+ * This gives you an opportunity to set up your data model,
+ * run jobs, or perform some special logic.
+ */
+// Search and load .env
+require('dotenv').config({ path: require('find-config')('.env') });
+
+module.exports = cb => {
+  cb();
+};
+```
+
+
 
 `strapi-cms/config/environments/development/database.json` has been completed during the initialization.  
 Complete `strapi-cms/config/environments/{staging|production}/database.json` based on it. For example:
 
 ```js
+// config/environments/development/database.json
 {
   "defaultConnection": "default",
   "connections": {
@@ -215,14 +237,14 @@ Complete `strapi-cms/config/environments/{staging|production}/database.json` bas
       "connector": "strapi-hook-bookshelf",
       "settings": {
         "client": "postgres",
-        "host": "<RDS endpoint>",
-        "port": 5432,
-        "database": "<strapi_staging|strapi>",
-        "username": "<RDS master username>",
-        "password": "<RDS password>"
+        "host": "${process.env.DATABASE_HOST || '127.0.0.1'}",
+        "srv": "${process.env.DATABASE_SRV || false}",
+        "port": "${process.env.DATABASE_PORT || 5432}",
+        "database": "${process.env.DATABASE_NAME || 'dickeys_strapi_cms_development'}",
+        "username": "${process.env.DATABASE_USERNAME || 'postgres'}",
+        "password": "${process.env.DATABASE_PASSWORD || 'root'}"
       },
       "options": {
-        "ssl": false
       }
     }
   }
@@ -231,9 +253,9 @@ Complete `strapi-cms/config/environments/{staging|production}/database.json` bas
 
 ### ⊙ Fix listening ports
 Modify `port` in `strapi-cms/config/environments/{staging|production}/server.json`:
-* development: 1337 (default)
-* staging: 1338
-* production: 1339
+* development: ${process.env.PORT || 1337} (default)
+* staging: ${process.env.PORT || 1338}
+* production: ${process.env.PORT || 1339}
 
 ### ⊙ Install S3 upload plugin
 > Refer to https://strapi.io/documentation/3.x.x/guides/upload.html#install-providers
@@ -391,5 +413,3 @@ Now you have:
 * PM2-guarded processes with reboot startup hooks
 * Forced HTTPS-secured traffic for all
 * Auto-renew SSL certificates for free
-
-> PRs & issues are welcome! Sharing your experience will save others' time! [![tip](https://img.shields.io/badge/BuyMe-aCoffee-brightgreen.svg)](https://github.com/kenberkeley/tip)
